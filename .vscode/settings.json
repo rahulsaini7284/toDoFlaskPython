@@ -1,0 +1,12 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "database": "${workspaceFolder:flaskSQLAlchemy}/instance/testdb.db",
+      "name": "testDB",
+      "group": "testDB"
+    }
+  ],
+  "sqltools.useNodeRuntime": true
+}

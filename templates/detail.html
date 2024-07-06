@@ -1,0 +1,80 @@
+{%extends 'base.html'%} {%block title%}Detail{%endblock%} {%block content%}
+<div class="row">
+  <div class="col">
+    <h3 style="color: cadetblue">Person Detail</h3>
+    <div class="card border-info" style="width: 18rem">
+      <div class="card-header"><h5>Person with id {{person.pid}}</h5></div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name: {{person.name}}</li>
+        <li class="list-group-item">Age: {{person.age}}</li>
+        <li class="list-group-item">City: {{person.city}}</li>
+        <li class="list-group-item">
+          Adult: {%if person.isAdult==True%}
+          <i class="fa-solid fa-check fa-xl" style="color: #0aa345"></i>
+          {%else%}
+          <i
+            class="fa-regular fa-circle-xmark fa-xl"
+            style="color: #e2031a"
+          ></i>
+          {%endif%}
+        </li>
+        <li class="list-group-item">
+          <a href="/"
+            ><i class="fa-solid fa-arrow-left fa-xl" style="color: #940eb9"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col col-md-6 col-lg-8">
+    <h3 style="color: darkcyan">Update Person</h3>
+    <form action="/update/{{person.pid}}" method="POST">
+      <div class="form-floating mb-3">
+        <input type="text" value="PUT" name="method" hidden />
+        <input
+          type="name"
+          class="form-control"
+          id="floatingInput"
+          value="{{person.name}}"
+          name="name"
+          placeholder="Jaspreet Singh"
+        />
+        <label for="floatingInput">Name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="number"
+          value="{{person.age}}"
+          class="form-control"
+          id="floatingPassword"
+          name="age"
+          placeholder="24"
+        />
+        <label for="floatingPassword">Age</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingPassword"
+          value="{{person.city}}"
+          name="city"
+          placeholder="Noida"
+        />
+        <label for="floatingPassword">City</label>
+      </div>
+      <div class="form-check mb-3">
+        <input
+          class="form-check-input"
+          name="isAdult"
+          type="checkbox"
+          id="defaultCheck1"
+        />
+        <label class="form-check-label"> isAdult </label>
+      </div>
+      <input class="btn btn-warning my-2" type="submit" value="Update" />
+    </form>
+  </div>
+</div>
+
+{%endblock%}
